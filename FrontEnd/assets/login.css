@@ -1,3 +1,4 @@
+
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -30,9 +31,6 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
-	background: #FFFEF8;
-
-	;
 }
 ol, ul {
 	list-style: none;
@@ -188,25 +186,108 @@ footer nav ul {
 	justify-content: flex-end;
 	margin: 2em
 }
+body{
+    background: #FFFEF8;
+}
+
 
 
 button, input[type="submit"] {
-	
-	font-family: 'Syne', sans-serif;
-	font-weight: 700;
-	margin: 1em auto;
-	padding: 15px 30px;
-	text-align: center;
-	border: 1px solid #1D6154;
-	border-radius: 60px;
-	cursor: pointer;
-	
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    margin: 1em auto;
+    padding: 15px 30px;
+    text-align: center;
+    border: 1px solid #1D6154;
+    border-radius: 60px;
+    cursor: pointer;
+    transition: all 0.3s ease;
   }
   
   button:hover, input[type="submit"]:hover {
-	background-color: #1D6154;
-
+    background-color: #1D6154;
+    color: white;
   }
   
+  .catégorie {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Espace entre les boutons */
+    margin-top: 20px;
+  }
   
+  .catégorie button {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    color: #1D6154;
+    background-color: transparent;
+    border: 2px solid #1D6154;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .catégorie button:hover, .catégorie button.active {
+    background-color: #1D6154;
+    color: white;
+  }
+  
+  .catégorie button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(29, 97, 84, 0.5);
+  }
+  #login {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+#login h2 {
+    margin-bottom: 20px;
+}
+#login form {
+    text-align: left;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+#login input[type="email"],
+#login input[type="password"] {
+    height: 50px;
+    font-size: 1.2em;
+    border: none;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+    margin-bottom: 1em;
+}
+#login label {
+    margin: 2em 0 1em 0;
+}
+#login #forgot-password {
+    text-align: right;
+    display: block;
+    margin-bottom: 1em;
+}
+#login input[type="submit"] {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    color: white;
+    background-color: #1D6154;
+    margin: 2em auto;
+    width: 180px;
+    text-align: center;
+    border-radius: 60px;
+    cursor: pointer;
+}
+#login input[type="submit"]:hover {
+    background-color: #B1663C;
+}
 
+footer nav ul {
+    display: flex;
+    justify-content: flex-end;
+    margin: 2em;
+}
+
+.forgot-password {
+    color: black;
+}
