@@ -93,9 +93,11 @@ nav ul {
 	list-style-type: none;
 
 }
-nav li {
+nav li a {
+	text-decoration: none;
 	padding: 0 10px;
 	font-size: 1.2em;
+	color: black;
 }
 
 li:hover {
@@ -172,17 +174,6 @@ margin: auto;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
-input[type="submit"]{
-	font-family: 'Syne';
-	font-weight: 700;
-	color: white;
-	background-color: #1D6154;
-	margin : 2em auto ;
-	width: 180px;
-	text-align: center;
-	border-radius: 60px ;
-}
-
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
@@ -194,7 +185,7 @@ button, input[type="submit"] {
 	
 	font-family: 'Syne', sans-serif;
 	font-weight: 700;
-	margin: 1em auto;
+	margin: 2em auto;
 	padding: 15px 30px;
 	text-align: center;
 	border: 1px solid #1D6154;
@@ -207,6 +198,23 @@ button, input[type="submit"] {
 	background-color: #1D6154;
 
   }
+  .catégorie {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 585px;
+	margin: 0 auto;
+	
+	
+  }
+.catégorie button {
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-align: center;
   
-  
+}
 
+  .catégorie button.active {
+    background-color: #1D6154; /* Couleur de fond lorsqu'il est actif */
+    color: white; /* Couleur du texte lorsqu'il est actif */
+}
