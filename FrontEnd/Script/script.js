@@ -161,6 +161,7 @@ function setupModal() {
           <div class="modal-view" id="galleryView">
               <h2>Galerie photo</h2>
               <div class="modal-gallery"></div>
+              <hr class="ligne-separation-1">
               <button id="addPhotoButton">Ajouter une photo</button>
           </div>
           <div class="modal-view" id="addPhotoView" style="display:none;">
@@ -169,10 +170,11 @@ function setupModal() {
                   <div class="divAjoutFichier">
                       <label for="photoFile" class="file-input-label">
                           <i class="fa-regular fa-image"></i> 
+                          
                           <button type="button" id="triggerFileInput"> + Ajouter photo </button>
                       </label>
                       <input type="file" id="photoFile" name="image" accept=".jpg,.jpeg,.png" style="display: none;" required>
-                      <img id="previewImage" style="display: none; width: 100px; height: auto; margin-top: 10px;">
+                      <img id="previewImage" style="display: none;">
                       <p>jpg, png : 4mo max</p>
                   </div>
                   <label for="photoTitle">Titre</label>
@@ -181,7 +183,7 @@ function setupModal() {
                   <label for="photoCategory">Catégorie</label>
                   <select id="photoCategory" name="category" required></select>
 
-                  <hr class="ligneSepaModale2">
+                   <hr class="ligne-separation-2">
 
                   <button type="submit" class="btnValiderForm">Valider</button>
               </form>
