@@ -147,7 +147,6 @@ function setupLogout() {
 }
 
 // Fonction pour créer et gérer la fenêtre modale
-// Fonction pour créer et gérer la fenêtre modale
 function setupModal() {
   const overlay = document.createElement("div");
   overlay.classList.add("modal-overlay");
@@ -204,10 +203,15 @@ function setupModal() {
   const photoFileInput = document.getElementById("photoFile");
   const previewImage = document.getElementById("previewImage");
 
-  closeModalButton.addEventListener("click", closeModal);
+  closeModalButton.addEventListener("click", () => {
+    closeModal();
+    clearPreviewImage();
+  });
+
   window.addEventListener("click", (event) => {
     if (event.target === overlay) {
       closeModal();
+      clearPreviewImage();
     }
   });
 
@@ -219,6 +223,7 @@ function setupModal() {
   backToGalleryButton.addEventListener("click", () => {
     addPhotoView.style.display = "none";
     galleryView.style.display = "block";
+    clearPreviewImage();
   });
 
   addPhotoForm.addEventListener("submit", submitPhotoForm);
@@ -245,6 +250,12 @@ function setupModal() {
   loadGalleryWorks();
 }
 
+function clearPreviewImage() {
+  const previewImage = document.getElementById("previewImage");
+  previewImage.style.display = "none";
+  previewImage.src = "";
+}
+
 function openModal() {
   loadGalleryWorks(); // Recharger les travaux chaque fois que le modal est ouvert
   document.querySelector(".modal-overlay").style.display = "flex";
@@ -253,7 +264,6 @@ function openModal() {
 function closeModal() {
   document.querySelector(".modal-overlay").style.display = "none";
 }
-
 // Charger les catégories dans le formulaire d'ajout de photo
 function loadCategories() {
   fetch("http://localhost:5678/api/categories")
