@@ -150,6 +150,7 @@ function setupLogout() {
 function setupModal() {
   const overlay = document.createElement("div");
   overlay.classList.add("modal-overlay");
+  overlay.style.display = "none";
 
   const modal = document.createElement("div");
   modal.classList.add("modal");
@@ -206,6 +207,7 @@ function setupModal() {
   closeModalButton.addEventListener("click", () => {
     closeModal();
     clearPreviewImage();
+    resetModalView();
   });
 
   window.addEventListener("click", (event) => {
@@ -249,7 +251,12 @@ function setupModal() {
   loadCategories();
   loadGalleryWorks();
 }
-
+function resetModalView() {
+  const galleryView = document.getElementById("galleryView");
+  const addPhotoView = document.getElementById("addPhotoView");
+  galleryView.style.display = "block";
+  addPhotoView.style.display = "none";
+}
 function clearPreviewImage() {
   const previewImage = document.getElementById("previewImage");
   previewImage.style.display = "none";
@@ -377,4 +384,19 @@ function addNewWorkToModal(work) {
     .addEventListener("click", () => {
       deleteWork(work.id);
     });
+}
+function addEditModeBar() {
+  // Créer la barre d'édition
+  const editModeBar = document.createElement("div");
+  editModeBar.id = "editModeBar";
+  editModeBar.innerHTML =
+    '<i class="fa-regular fa-pen-to-square"></i> Mode Édition';
+
+  // Ajouter la barre d'édition au corps du document
+  document.body.prepend(editModeBar);
+}
+
+// Vérifier si l'utilisateur est connecté et ajouter la barre d'édition si nécessaire
+if (localStorage.getItem("token")) {
+  addEditModeBar();
 }
