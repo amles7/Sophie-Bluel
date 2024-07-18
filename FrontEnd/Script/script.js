@@ -10,6 +10,7 @@ async function fetchWorks() {
 }
 
 document.addEventListener("DOMContentLoaded", fetchWorks);
+
 function generateWorks(works) {
   const sectionGallery = document.querySelector("#portfolio");
   let divGallery = document.querySelector(".gallery");
@@ -42,6 +43,7 @@ function generateWorks(works) {
 
   sectionGallery.appendChild(divGallery);
 }
+
 async function fetchCategories() {
   try {
     const response = await fetch("http://localhost:5678/api/categories");
@@ -62,6 +64,7 @@ function generateCategoryMenu(categories) {
   const allButton = document.createElement("button");
   allButton.innerText = "Tous";
   allButton.classList.add("active"); // Bouton "Tous" actif par défaut
+  allButton.classList.add("btn-tous");
   if (token) {
     allButton.classList.add("hidden"); // Masquer le bouton si connecté
   }
@@ -72,9 +75,10 @@ function generateCategoryMenu(categories) {
   categoryMenu.appendChild(allButton);
 
   // Ajouter un bouton pour chaque catégorie
-  categories.forEach((category) => {
+  categories.forEach((category, index) => {
     const button = document.createElement("button");
     button.innerText = category.name;
+    button.classList.add(`btn-${index + 1}`);
     if (token) {
       button.classList.add("hidden"); // Masquer les boutons si connecté
     }
@@ -93,6 +97,7 @@ function setActiveButton(activeButton) {
   });
   activeButton.classList.add("active"); // Ajouter la classe 'active' au bouton cliqué
 }
+
 function filterWorks(categoryId) {
   const works = document.querySelectorAll(".gallery figure");
   works.forEach((work) => {
@@ -103,6 +108,7 @@ function filterWorks(categoryId) {
     }
   });
 }
+
 document.addEventListener("DOMContentLoaded", () => {
   fetchWorks();
   fetchCategories();
@@ -173,7 +179,7 @@ function setupModal() {
                           
                           <button type="button" id="triggerFileInput"> + Ajouter photo </button>
                       </label>
-                      <input type="file" id="photoFile" name="image" accept=".jpg,.jpeg,.png" style="display: none;" required>
+                      <input type="file" id="photoFile" name="image" accept=".jpg,.jpeg,.png" style="display: none;">
                       <img id="previewImage" style="display: none;">
                       <p>jpg, png : 4mo max</p>
                   </div>
@@ -251,12 +257,14 @@ function setupModal() {
   loadCategories();
   loadGalleryWorks();
 }
+
 function resetModalView() {
   const galleryView = document.getElementById("galleryView");
   const addPhotoView = document.getElementById("addPhotoView");
   galleryView.style.display = "block";
   addPhotoView.style.display = "none";
 }
+
 function clearPreviewImage() {
   const previewImage = document.getElementById("previewImage");
   previewImage.style.display = "none";
@@ -271,6 +279,7 @@ function openModal() {
 function closeModal() {
   document.querySelector(".modal-overlay").style.display = "none";
 }
+
 // Charger les catégories dans le formulaire d'ajout de photo
 function loadCategories() {
   fetch("http://localhost:5678/api/categories")
@@ -385,6 +394,7 @@ function addNewWorkToModal(work) {
       deleteWork(work.id);
     });
 }
+
 function addEditModeBar() {
   // Créer la barre d'édition
   const editModeBar = document.createElement("div");

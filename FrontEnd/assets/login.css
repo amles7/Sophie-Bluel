@@ -237,6 +237,8 @@ h2 {
   text-align: center;
   border-radius: 60px;
   cursor: pointer;
+  border: none; 
+  outline: none; 
 }
 
 #login input[type="submit"]:hover {

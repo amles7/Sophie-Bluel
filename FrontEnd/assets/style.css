@@ -286,16 +286,46 @@ input[type="submit"]:hover {
   align-items: center;
   width: 585px;
   margin: 0 auto;
+  gap: 10px;
 }
 .catégorie button {
   padding: 10px 20px;
   border-radius: 20px;
   text-align: center;
+  height: 37px;
+  background-color: #fffef8;
+  color: #1d6154;
+  font-size: 16px;
+  white-space: nowrap; /* Empêcher le texte de se briser */
+}
+.btn-tous {
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-1 {
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-2 {
+  width: 157px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-3 {
+  width: 198px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .catégorie button.active {
-  background-color: #1d6154; /* Couleur de fond lorsqu'il est actif */
-  color: white; /* Couleur du texte lorsqu'il est actif */
+  background-color: #1d6154;
+  color: white;
 }
 /* Réinitialisation des styles */
 * {
